@@ -22,6 +22,10 @@ function chooseValues() {
   let op = "";
   operatorButtons.forEach((operatorButton) => {
     operatorButton.addEventListener("click",()=>{
+      if(firstNum.length === 0){
+        alert("Choose Number");
+        return;
+      }
       op = operatorButton.dataset.value;
     })
   });
