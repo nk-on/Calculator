@@ -34,6 +34,14 @@ function chooseValues() {
   });
   return (button) => {
     const digit = button.dataset.value;
+    if(button.dataset.value === "." && (firstNum.length === 0 || secondNum.length === 0)){
+      (firstNum.length === 0) ? firstNum = "0." : secondNum = "0."
+      return;
+    };
+    if(button.dataset.value === "0" && (firstNum.length === 0 || secondNum.length === 0)){
+      (firstNum.length === 0) ? firstNum = "0." : secondNum = "0."
+      return;
+    };
     (op.length === 0) ? firstNum += digit : secondNum += digit;
     console.log(firstNum, op, secondNum)
   };
