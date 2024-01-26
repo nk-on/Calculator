@@ -3,13 +3,8 @@ const operatorButtons = document.querySelectorAll('.op');
 const calculateButton = document.querySelector('.calculate');
 const clearButton = document.querySelector('.CLR');
 const deleteButton = document.querySelector('.DEL');
-const chooseNumbersFun = chooseNumbers();
+const chooseValuesFun = chooseValues();
 //program should choose number1, operation,number2
-//create variable, firstNumber 
-//add firstNumber content of clicked number button
-//create variable, operation 
-//add content operator to the opearation
-//create secondNumber vairible
 //do same in first block for secondNumber
 //if op is filled or user clicks = do the operation
 //it should not let user to start with op or click = when  user 
@@ -18,14 +13,21 @@ const chooseNumbersFun = chooseNumbers();
 //del should delete individual digit
 numberButtons.forEach((numberButton) => {
   numberButton.addEventListener("click", () => {
-    chooseNumbersFun(numberButton);
+    chooseValuesFun(numberButton);
   });
 });
-function chooseNumbers() {
+function chooseValues() {
   let firstNum = "";
+  let secondNum = "";
+  let op = "";
+  operatorButtons.forEach((operatorButton) => {
+    operatorButton.addEventListener("click",()=>{
+      op = operatorButton.dataset.value;
+    })
+  });
   return (button) => {
     const digit = button.dataset.value;
-    firstNum += digit;
-    console.log(firstNum);
+    (op.length === 0) ? firstNum += digit : secondNum += digit;
+    console.log(firstNum, op, secondNum)
   };
 };
