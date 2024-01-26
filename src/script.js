@@ -21,17 +21,44 @@ function chooseValues() {
   let secondNum = "";
   let op = "";
   operatorButtons.forEach((operatorButton) => {
-    operatorButton.addEventListener("click",()=>{
-      if(firstNum.length === 0){
+    operatorButton.addEventListener("click", () => {
+      if (firstNum.length === 0) {
         alert("Choose Number");
         return;
+      };
+      if (op.length > 0) {
+        console.log(calculate(firstNum, secondNum, op));
       }
       op = operatorButton.dataset.value;
-    })
+    });
   });
   return (button) => {
     const digit = button.dataset.value;
     (op.length === 0) ? firstNum += digit : secondNum += digit;
     console.log(firstNum, op, secondNum)
   };
+};
+function calculate(firstNum, secondNum, op) {
+  firstNum = Number(firstNum);
+  secondNum = Number(secondNum);
+  let result = undefined;
+  switch (op) {
+    case "+":
+      result = firstNum + secondNum;
+      break;
+    case "-":
+      result = firstNum - secondNum;
+      break;
+    case "*":
+      result = firstNum * secondNum;
+      break;
+    default:
+      result = firstNum / secondNum;
+      break;
+  };
+  if(!isFinite(result)){
+    alert("Can't divide on zero");
+    return;
+  };
+  return result;
 };
