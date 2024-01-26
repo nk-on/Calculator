@@ -28,18 +28,22 @@ function chooseValues() {
       };
       if (op.length > 0) {
         console.log(calculate(firstNum, secondNum, op));
+        firstNum = "";
+        secondNum = "";
+        op = "";
+        return;
       }
       op = operatorButton.dataset.value;
     });
   });
   return (button) => {
     const digit = button.dataset.value;
-    if(button.dataset.value === "." && (firstNum.length === 0 || secondNum.length === 0)){
-      (firstNum.length === 0) ? firstNum = "0." : secondNum = "0."
+    if (button.dataset.value === "." && (firstNum.length === 0 || secondNum.length === 0)) {
+      (firstNum.length === 0) ? firstNum = "0." : secondNum = "0.";
       return;
     };
-    if(button.dataset.value === "0" && (firstNum.length === 0 || secondNum.length === 0)){
-      (firstNum.length === 0) ? firstNum = "0." : secondNum = "0."
+    if (button.dataset.value === "0" && (firstNum.length === 0 || secondNum.length === 0)) {
+      (firstNum.length === 0) ? firstNum = "0." : secondNum = "0.";
       return;
     };
     (op.length === 0) ? firstNum += digit : secondNum += digit;
@@ -64,7 +68,7 @@ function calculate(firstNum, secondNum, op) {
       result = firstNum / secondNum;
       break;
   };
-  if(!isFinite(result)){
+  if (!isFinite(result)) {
     alert("Can't divide on zero");
     return;
   };
