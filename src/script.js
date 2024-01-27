@@ -17,6 +17,9 @@ function Calculator() {
   calculator.secondNum = "";
   calculator.op = "";
   calculator.chooseValues = (digit) => {
+    if(digit === "." && (calculator.firstNum.includes(".") || calculator.secondNum.includes("."))){
+      return;
+    };
     (calculator.op.length === 0) ? calculator.firstNum += digit : calculator.secondNum += digit;
   };
   calculator.chooseOperation = (operationSign) => {
@@ -26,14 +29,17 @@ function Calculator() {
     };
     if (calculator.op.length > 0) {
       console.log(calculator.calculate(calculator.firstNum, calculator.secondNum, calculator.op));
+      calculator.firstNum = String(calculator.calculate(calculator.firstNum, calculator.secondNum, calculator.op));
+      calculator.op = "";
+      calculator.secondNum = "";
       return;
     };
     calculator.op = operationSign;
   };
-  calculator.calculate = (firstNum, secondNum, op) => {
-    firstNum = Number(firstNum);
-    secondNum = Number(secondNum);
-    switch (op) {
+  calculator.calculate = () => {
+    let firstNum = Number(calculator.firstNum);
+    let secondNum = Number(calculator.secondNum);
+    switch (calculator.op) {
       case "+":
         firstNum+=secondNum;
         break;
