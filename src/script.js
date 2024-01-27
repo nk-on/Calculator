@@ -29,14 +29,14 @@ function Calculator() {
     };
     if (calculator.op.length > 0) {
       console.log(calculator.calculate(calculator.firstNum, calculator.secondNum, calculator.op));
-      calculator.firstNum = String(calculator.calculate(calculator.firstNum, calculator.secondNum, calculator.op));
-      calculator.op = "";
-      calculator.secondNum = "";
       return;
     };
     calculator.op = operationSign;
   };
   calculator.calculate = () => {
+    if(!calculator.firstNum.length ||!calculator.secondNum.length){
+      return;
+    };
     let firstNum = Number(calculator.firstNum);
     let secondNum = Number(calculator.secondNum);
     switch (calculator.op) {
@@ -57,6 +57,9 @@ function Calculator() {
       alert("Can't divide on zero");
       return;
     };
+    calculator.firstNum = String(firstNum);
+    calculator.op = "";
+    calculator.secondNum = "";
     return firstNum;
   };
   return calculator;
@@ -74,3 +77,5 @@ operatorButtons.forEach((operatorButton) => {
     console.log(calculator);
   });
 });
+calculateButton.addEventListener("click",calculator.calculate());
+console.log(calculator)
