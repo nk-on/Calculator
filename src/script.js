@@ -17,16 +17,19 @@ function Calculator() {
   calculator.secondNum = "";
   calculator.op = "";
   calculator.chooseValues = (digit) => {
-    if(digit === "." && ((!calculator.firstNum.length) || (!calculator.secondNum.length))){
+    const firstDigitIsDot = digit === "." && ((!calculator.firstNum.length) || (!calculator.secondNum.length));
+    const firstDigitIsZero = digit === "0" && ((!calculator.firstNum.length) || (!calculator.secondNum.length));
+    const userEnteredSecondDot = digit === "." && (calculator.firstNum.includes(".") || calculator.secondNum.includes("."));
+    if(firstDigitIsDot){
        console.log("i work");
        (!calculator.firstNum.length) ? calculator.firstNum = "0.":calculator.secondNum = "0.";
        return;
     }
-    if(digit === "0" && ((!calculator.firstNum.length) || (!calculator.secondNum.length))){
+    if(firstDigitIsZero){
       (!calculator.firstNum.length) ? calculator.firstNum = "0.":calculator.secondNum = "0.";
       return;
    }
-    if(digit === "." && (calculator.firstNum.includes(".") || calculator.secondNum.includes("."))){
+    if(userEnteredSecondDot){
       return;
     };
     (calculator.op.length === 0) ? calculator.firstNum += digit : calculator.secondNum += digit;
