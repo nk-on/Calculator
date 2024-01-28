@@ -4,13 +4,6 @@ const calculateButton = document.querySelector('.calculate');
 const clearButton = document.querySelector('.CLR');
 const deleteButton = document.querySelector('.DEL');
 const calculator = Calculator();
-//program should choose number1, operation,number2
-//do same in first block for secondNumber
-//if op is filled or user clicks = do the operation
-//it should not let user to start with op or click = when  user 
-//program should calculate the result when user clicks on operand second time or the = button when both numbers are filled 
-//CLR shoudl clear the board 
-//del should delete individual digit
 function Calculator() {
   const calculator = {};
   calculator.firstNum = "";
