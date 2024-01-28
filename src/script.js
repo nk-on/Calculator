@@ -17,6 +17,15 @@ function Calculator() {
   calculator.secondNum = "";
   calculator.op = "";
   calculator.chooseValues = (digit) => {
+    if(digit === "." && ((!calculator.firstNum.length) || (!calculator.secondNum.length))){
+       console.log("i work");
+       (!calculator.firstNum.length) ? calculator.firstNum = "0.":calculator.secondNum = "0.";
+       return;
+    }
+    if(digit === "0" && ((!calculator.firstNum.length) || (!calculator.secondNum.length))){
+      (!calculator.firstNum.length) ? calculator.firstNum = "0.":calculator.secondNum = "0.";
+      return;
+   }
     if(digit === "." && (calculator.firstNum.includes(".") || calculator.secondNum.includes("."))){
       return;
     };
@@ -77,5 +86,4 @@ operatorButtons.forEach((operatorButton) => {
     console.log(calculator);
   });
 });
-calculateButton.addEventListener("click",calculator.calculate());
-console.log(calculator)
+calculateButton.addEventListener("click",calculator.calculate);
