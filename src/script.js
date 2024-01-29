@@ -7,78 +7,63 @@ const calculatorDisplay = document.querySelector(".display");
 const calculator = Calculator();
 function Calculator() {
   const calculator = {};
-  calculator.firstNum = "";
-  calculator.secondNum = "";
+  calculator.currNum = "";
+  calculator.prevNum = "";
   calculator.op = "";
   calculator.chooseValues = (digit) => {
-    const firstDigitIsDot = digit === "." && ((!calculator.firstNum.length) && (!calculator.secondNum.length));
-    const firstDigitIsZero = digit === "0" && ((!calculator.firstNum.length) && (!calculator.secondNum.length));
-    const userEnteredSecondDot = digit === "." && (calculator.firstNum.includes(".") || calculator.secondNum.includes("."));
-    if (firstDigitIsDot) {
-      console.log("i work");
-      (!calculator.firstNum.length) ? calculator.firstNum = "0." : calculator.secondNum = "0.";
-      return;
-    }
-    if (firstDigitIsZero) {
-      (!calculator.firstNum.length) ? calculator.firstNum = "0." : calculator.secondNum = "0.";
-      return;
-    }
-    if (userEnteredSecondDot) {
-      return;
-    };
-    (calculator.op.length === 0) ? calculator.firstNum += digit : calculator.secondNum += digit;
+    calculator.currNum += digit;
     calculator.updateDisplay();
   };
   calculator.chooseOperation = (operationSign) => {
-    if (calculator.firstNum.length === 0) {
+    if (!calculator.currNum.length) {
       alert("Choose Number");
       return;
     };
     if (calculator.op.length > 0) {
-      console.log(calculator.calculate(calculator.firstNum, calculator.secondNum, calculator.op));
+      console.log(calculator.calculate());
       return;
     };
     calculator.op = operationSign;
+    calculator.prevNum = calculator.currNum;
+    calculator.currNum = "";
     calculator.updateDisplay();
   };
   calculator.calculate = () => {
-    if (!calculator.firstNum.length || !calculator.secondNum.length) {
+    if (!calculator.currNum.length) {
       return;
     };
-    let firstNum = Number(calculator.firstNum);
-    let secondNum = Number(calculator.secondNum);
+    let currNum = Number(calculator.currNum);
+    let prevNum = Number(calculator.prevNum);
     switch (calculator.op) {
       case "+":
-        firstNum += secondNum;
+        currNum += prevNum;
         break;
       case "-":
-        firstNum -= secondNum;
+        currNum = prevNum - currNum;
         break;
       case "*":
-        firstNum *= secondNum;
+        currNum = prevNum * currNum;
         break;
       default:
-        firstNum /= secondNum;
+        currNum = prevNum / currNum;
         break;
     };
-    if (!isFinite(firstNum)) {
+    if (!isFinite(currNum)) {
       alert("Can't divide on zero");
       return;
     };
-    calculator.firstNum = String(firstNum);
+    calculator.currNum = String(currNum);
     calculator.op = "";
-    calculator.secondNum = "";
     calculator.updateDisplay();
-    return firstNum;
+    return;
   };
   calculator.clear = () => {
-    calculator.firstNum = "";
+    calculator.currNum = "";
     calculator.op = "";
-    calculator.secondNum = "";
     calculator.updateDisplay();
   }
   calculator.updateDisplay = () => {
-    const displayValue = `${calculator.firstNum}${calculator.op}${calculator.secondNum}`;
+    const displayValue = `${calculator.currNum}${calculator.op}`;
     calculatorDisplay.textContent = displayValue;
   }
   return calculator;
@@ -95,5 +80,5 @@ operatorButtons.forEach((operatorButton) => {
     console.log(calculator);
   });
 });
-clearButton.addEventListener("click",calculator.clear)
+clearButton.addEventListener("click", calculator.clear)
 calculateButton.addEventListener("click", calculator.calculate);
