@@ -3,6 +3,7 @@ const operatorButtons = document.querySelectorAll('.op');
 const calculateButton = document.querySelector('.calculate');
 const clearButton = document.querySelector('.CLR');
 const deleteButton = document.querySelector('.DEL');
+const calculatorDisplay = document.querySelector(".display");
 const calculator = Calculator();
 function Calculator() {
   const calculator = {};
@@ -10,22 +11,23 @@ function Calculator() {
   calculator.secondNum = "";
   calculator.op = "";
   calculator.chooseValues = (digit) => {
-    const firstDigitIsDot = digit === "." && ((!calculator.firstNum.length) || (!calculator.secondNum.length));
-    const firstDigitIsZero = digit === "0" && ((!calculator.firstNum.length) || (!calculator.secondNum.length));
+    const firstDigitIsDot = digit === "." && ((!calculator.firstNum.length) && (!calculator.secondNum.length));
+    const firstDigitIsZero = digit === "0" && ((!calculator.firstNum.length) && (!calculator.secondNum.length));
     const userEnteredSecondDot = digit === "." && (calculator.firstNum.includes(".") || calculator.secondNum.includes("."));
-    if(firstDigitIsDot){
-       console.log("i work");
-       (!calculator.firstNum.length) ? calculator.firstNum = "0.":calculator.secondNum = "0.";
-       return;
-    }
-    if(firstDigitIsZero){
-      (!calculator.firstNum.length) ? calculator.firstNum = "0.":calculator.secondNum = "0.";
+    if (firstDigitIsDot) {
+      console.log("i work");
+      (!calculator.firstNum.length) ? calculator.firstNum = "0." : calculator.secondNum = "0.";
       return;
-   }
-    if(userEnteredSecondDot){
+    }
+    if (firstDigitIsZero) {
+      (!calculator.firstNum.length) ? calculator.firstNum = "0." : calculator.secondNum = "0.";
+      return;
+    }
+    if (userEnteredSecondDot) {
       return;
     };
     (calculator.op.length === 0) ? calculator.firstNum += digit : calculator.secondNum += digit;
+    calculator.updateDisplay();
   };
   calculator.chooseOperation = (operationSign) => {
     if (calculator.firstNum.length === 0) {
@@ -37,25 +39,26 @@ function Calculator() {
       return;
     };
     calculator.op = operationSign;
+    calculator.updateDisplay();
   };
   calculator.calculate = () => {
-    if(!calculator.firstNum.length ||!calculator.secondNum.length){
+    if (!calculator.firstNum.length || !calculator.secondNum.length) {
       return;
     };
     let firstNum = Number(calculator.firstNum);
     let secondNum = Number(calculator.secondNum);
     switch (calculator.op) {
       case "+":
-        firstNum+=secondNum;
+        firstNum += secondNum;
         break;
       case "-":
-        firstNum-=secondNum;
+        firstNum -= secondNum;
         break;
       case "*":
-        firstNum*=secondNum;
+        firstNum *= secondNum;
         break;
       default:
-        firstNum/=secondNum;
+        firstNum /= secondNum;
         break;
     };
     if (!isFinite(firstNum)) {
@@ -65,11 +68,21 @@ function Calculator() {
     calculator.firstNum = String(firstNum);
     calculator.op = "";
     calculator.secondNum = "";
+    calculator.updateDisplay();
     return firstNum;
   };
+  calculator.clear = () => {
+    calculator.firstNum = "";
+    calculator.op = "";
+    calculator.secondNum = "";
+    calculator.updateDisplay();
+  }
+  calculator.updateDisplay = () => {
+    const displayValue = `${calculator.firstNum}${calculator.op}${calculator.secondNum}`;
+    calculatorDisplay.textContent = displayValue;
+  }
   return calculator;
 };
-
 numberButtons.forEach((numberButton) => {
   numberButton.addEventListener("click", () => {
     calculator.chooseValues(numberButton.dataset.value);
@@ -82,4 +95,5 @@ operatorButtons.forEach((operatorButton) => {
     console.log(calculator);
   });
 });
-calculateButton.addEventListener("click",calculator.calculate);
+clearButton.addEventListener("click",calculator.clear)
+calculateButton.addEventListener("click", calculator.calculate);
