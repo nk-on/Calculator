@@ -3,6 +3,7 @@ const operatorButtons = document.querySelectorAll('.op');
 const calculateButton = document.querySelector('.calculate');
 const clearButton = document.querySelector('.CLR');
 const deleteButton = document.querySelector('.DEL');
+const calculatorDisplay = document.querySelector(".display");
 const calculator = Calculator();
 function Calculator() {
   const calculator = {};
@@ -26,6 +27,7 @@ function Calculator() {
       return;
     };
     (calculator.op.length === 0) ? calculator.firstNum += digit : calculator.secondNum += digit;
+    calculator.updateDisplay();
   };
   calculator.chooseOperation = (operationSign) => {
     if (calculator.firstNum.length === 0) {
@@ -37,6 +39,7 @@ function Calculator() {
       return;
     };
     calculator.op = operationSign;
+    calculator.updateDisplay();
   };
   calculator.calculate = () => {
     if(!calculator.firstNum.length ||!calculator.secondNum.length){
@@ -65,8 +68,13 @@ function Calculator() {
     calculator.firstNum = String(firstNum);
     calculator.op = "";
     calculator.secondNum = "";
+    calculator.updateDisplay();
     return firstNum;
   };
+  calculator.updateDisplay = ()=>{
+    const displayValue = `${calculator.firstNum}${calculator.op}${calculator.secondNum}`;
+    calculatorDisplay.textContent = displayValue;
+  }
   return calculator;
 };
 

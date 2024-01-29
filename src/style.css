@@ -27,7 +27,6 @@ main {
     border: 2px solid var(--calculator-border-clr);
     width: min(90%, 500px);
     padding: 20px 0;
-    /* height: 600px; */
 }
 
 .display {
