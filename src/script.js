@@ -71,13 +71,18 @@ function Calculator() {
     calculator.updateDisplay();
     return firstNum;
   };
+  calculator.clear = () => {
+    calculator.firstNum = "";
+    calculator.op = "";
+    calculator.secondNum = "";
+    calculator.updateDisplay();
+  }
   calculator.updateDisplay = () => {
     const displayValue = `${calculator.firstNum}${calculator.op}${calculator.secondNum}`;
     calculatorDisplay.textContent = displayValue;
   }
   return calculator;
 };
-
 numberButtons.forEach((numberButton) => {
   numberButton.addEventListener("click", () => {
     calculator.chooseValues(numberButton.dataset.value);
@@ -90,4 +95,5 @@ operatorButtons.forEach((operatorButton) => {
     console.log(calculator);
   });
 });
+clearButton.addEventListener("click",calculator.clear)
 calculateButton.addEventListener("click", calculator.calculate);
