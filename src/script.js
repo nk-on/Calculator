@@ -14,16 +14,16 @@ function Calculator() {
     const firstDigitIsDot = digit === "." && ((!calculator.firstNum.length) && (!calculator.secondNum.length));
     const firstDigitIsZero = digit === "0" && ((!calculator.firstNum.length) && (!calculator.secondNum.length));
     const userEnteredSecondDot = digit === "." && (calculator.firstNum.includes(".") || calculator.secondNum.includes("."));
-    if(firstDigitIsDot){
-       console.log("i work");
-       (!calculator.firstNum.length) ? calculator.firstNum = "0.":calculator.secondNum = "0.";
-       return;
-    }
-    if(firstDigitIsZero){
-      (!calculator.firstNum.length) ? calculator.firstNum = "0.":calculator.secondNum = "0.";
+    if (firstDigitIsDot) {
+      console.log("i work");
+      (!calculator.firstNum.length) ? calculator.firstNum = "0." : calculator.secondNum = "0.";
       return;
-   }
-    if(userEnteredSecondDot){
+    }
+    if (firstDigitIsZero) {
+      (!calculator.firstNum.length) ? calculator.firstNum = "0." : calculator.secondNum = "0.";
+      return;
+    }
+    if (userEnteredSecondDot) {
       return;
     };
     (calculator.op.length === 0) ? calculator.firstNum += digit : calculator.secondNum += digit;
@@ -42,23 +42,23 @@ function Calculator() {
     calculator.updateDisplay();
   };
   calculator.calculate = () => {
-    if(!calculator.firstNum.length ||!calculator.secondNum.length){
+    if (!calculator.firstNum.length || !calculator.secondNum.length) {
       return;
     };
     let firstNum = Number(calculator.firstNum);
     let secondNum = Number(calculator.secondNum);
     switch (calculator.op) {
       case "+":
-        firstNum+=secondNum;
+        firstNum += secondNum;
         break;
       case "-":
-        firstNum-=secondNum;
+        firstNum -= secondNum;
         break;
       case "*":
-        firstNum*=secondNum;
+        firstNum *= secondNum;
         break;
       default:
-        firstNum/=secondNum;
+        firstNum /= secondNum;
         break;
     };
     if (!isFinite(firstNum)) {
@@ -71,7 +71,7 @@ function Calculator() {
     calculator.updateDisplay();
     return firstNum;
   };
-  calculator.updateDisplay = ()=>{
+  calculator.updateDisplay = () => {
     const displayValue = `${calculator.firstNum}${calculator.op}${calculator.secondNum}`;
     calculatorDisplay.textContent = displayValue;
   }
@@ -90,4 +90,4 @@ operatorButtons.forEach((operatorButton) => {
     console.log(calculator);
   });
 });
-calculateButton.addEventListener("click",calculator.calculate);
+calculateButton.addEventListener("click", calculator.calculate);
