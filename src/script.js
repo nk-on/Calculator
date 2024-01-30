@@ -16,10 +16,11 @@ function Calculator() {
   calculator.chooseValues = (digit) => {
     const userEnteredSecondDot = (digit === ".") && calculator.currNum.includes(".");
     const firstDigitIsZero = (digit === "0") && !calculator.currNum.length;
+    const firstDigitIsDot = (digit === ".") && !calculator.currNum.length;
     if (userEnteredSecondDot) {
       return;
     };
-    if (firstDigitIsZero) {
+    if (firstDigitIsZero || firstDigitIsDot) {
       calculator.currNum = "0.";
       calculator.updateDisplay();
       return;
