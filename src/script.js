@@ -34,7 +34,7 @@ function Calculator() {
       return;
     };
     if (calculator.op.length > 0) {
-      console.log(calculator.calculate());
+      calculator.calculate();
       return;
     };
     calculator.op = operationSign;
@@ -91,13 +91,11 @@ function Calculator() {
 numberButtons.forEach((numberButton) => {
   numberButton.addEventListener("click", () => {
     calculator.chooseValues(numberButton.dataset.value);
-    console.log(calculator);
   });
 });
 operatorButtons.forEach((operatorButton) => {
   operatorButton.addEventListener("click", () => {
-    calculator.chooseOperation(operatorButton.dataset.value);
-    console.log(calculator);
+    calculator.chooseOperation(operatorButton.dataset.value);;
   });
 });
 clearButton.addEventListener("click", calculator.clear);
