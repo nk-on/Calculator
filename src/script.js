@@ -4,6 +4,9 @@ const calculateButton = document.querySelector('.calculate');
 const clearButton = document.querySelector('.CLR');
 const deleteButton = document.querySelector('.DEL');
 const calculatorDisplay = document.querySelector(".display");
+const currNumcontainer = document.querySelector(".currNum-container");
+const opContainer = document.querySelector(".op-container")
+const prevNumconteinr = document.querySelector(".prevNum-container");
 const calculator = Calculator();
 function Calculator() {
   const calculator = {};
@@ -15,6 +18,9 @@ function Calculator() {
     calculator.updateDisplay();
   };
   calculator.chooseOperation = (operationSign) => {
+    if(calculator.currNum.includes(".")){
+      return;
+    }
     if (!calculator.currNum.length) {
       alert("Choose Number");
       return;
@@ -54,6 +60,7 @@ function Calculator() {
     };
     calculator.currNum = String(currNum);
     calculator.op = "";
+    calculator.prevNum = "";
     calculator.updateDisplay();
     return;
   };
@@ -63,8 +70,8 @@ function Calculator() {
     calculator.updateDisplay();
   }
   calculator.updateDisplay = () => {
-    const displayValue = `${calculator.currNum}${calculator.op}`;
-    calculatorDisplay.textContent = displayValue;
+    prevNumconteinr.textContent = `${calculator.prevNum}${calculator.op}`;
+    currNumcontainer.textContent = calculator.currNum;
   }
   return calculator;
 };
