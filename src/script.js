@@ -43,7 +43,7 @@ function Calculator() {
     calculator.updateDisplay();
   };
   calculator.calculate = () => {
-    if (!calculator.currNum.length) {
+    if (!calculator.currNum.length || !calculator.prevNum.length ) {
       return;
     };
     let currNum = Number(calculator.currNum);
