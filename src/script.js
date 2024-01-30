@@ -14,13 +14,14 @@ function Calculator() {
   calculator.prevNum = "";
   calculator.op = "";
   calculator.chooseValues = (digit) => {
+    const userEnteredSecondDot = (digit === ".") && calculator.currNum.includes(".");
+    if(userEnteredSecondDot){
+      return;
+    }
     calculator.currNum += digit;
     calculator.updateDisplay();
   };
   calculator.chooseOperation = (operationSign) => {
-    if(calculator.currNum.includes(".")){
-      return;
-    }
     if (!calculator.currNum.length) {
       alert("Choose Number");
       return;
