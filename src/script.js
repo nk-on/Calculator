@@ -60,6 +60,7 @@ function Calculator() {
         break;
       default:
         currNum = prevNum / currNum;
+        currNum = currNum.toFixed(2)
         break;
     };
     if (!isFinite(currNum)) {
