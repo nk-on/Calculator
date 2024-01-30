@@ -77,6 +77,10 @@ function Calculator() {
     calculator.currNum = "";
     calculator.op = "";
     calculator.updateDisplay();
+  };
+  calculator.delete = () => {
+    calculator.currNum = calculator.currNum.slice(0,-1);
+    calculator.updateDisplay();
   }
   calculator.updateDisplay = () => {
     prevNumconteinr.textContent = `${calculator.prevNum}${calculator.op}`;
@@ -96,5 +100,6 @@ operatorButtons.forEach((operatorButton) => {
     console.log(calculator);
   });
 });
-clearButton.addEventListener("click", calculator.clear)
+clearButton.addEventListener("click", calculator.clear);
+deleteButton.addEventListener("click",calculator.delete);
 calculateButton.addEventListener("click", calculator.calculate);
