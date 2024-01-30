@@ -15,9 +15,14 @@ function Calculator() {
   calculator.op = "";
   calculator.chooseValues = (digit) => {
     const userEnteredSecondDot = (digit === ".") && calculator.currNum.includes(".");
-    if(userEnteredSecondDot){
+    const firstDigitIsZero = (digit === "0") && !calculator.currNum.length;
+    if (userEnteredSecondDot) {
       return;
-    }
+    };
+    if (firstDigitIsZero) {
+      digit += ".";
+      return;
+    };
     calculator.currNum += digit;
     calculator.updateDisplay();
   };
