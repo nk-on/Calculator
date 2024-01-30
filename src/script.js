@@ -20,7 +20,8 @@ function Calculator() {
       return;
     };
     if (firstDigitIsZero) {
-      digit += ".";
+      calculator.currNum = "0.";
+      calculator.updateDisplay();
       return;
     };
     calculator.currNum += digit;
