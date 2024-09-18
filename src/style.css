@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* Theme 1 */
+  --main-bg-color-theme-1: hsl(222, 26%, 31%);
+  --toggle-keypad-bg-color-theme-1: hsl(223, 31%, 20%);
+  --screen-bg-color-theme-1: hsl(224, 36%, 15%);
+  --key-bg-color-theme-1: hsl(225, 21%, 49%);
+  --key-shadow-color-theme-1: hsl(224, 28%, 35%);
+  --key-toggle-bg-color-theme-1: hsl(6, 63%, 50%);
+  --key-toggle-shadow-color-theme-1: hsl(6, 70%, 34%);
+  --key-bg-light-grayish-orange-theme-1: hsl(30, 25%, 89%);
+  --key-shadow-grayish-orange-theme-1: hsl(28, 16%, 65%);
+  --text-very-dark-grayish-blue-theme-1: hsl(221, 14%, 31%);
+  --text-white-theme-1: hsl(0, 0%, 100%);
+
+  /* Theme 2 */
+  --main-bg-color-theme-2: hsl(0, 0%, 90%);
+  --toggle-keypad-bg-color-theme-2: hsl(0, 5%, 81%);
+  --screen-bg-color-theme-2: hsl(0, 0%, 93%);
+  --key-bg-color-theme-2: hsl(185, 42%, 37%);
+  --key-shadow-color-theme-2: hsl(185, 58%, 25%);
+  --key-toggle-bg-color-theme-2: hsl(25, 98%, 40%);
+  --key-toggle-shadow-color-theme-2: hsl(25, 99%, 27%);
+  --key-bg-light-grayish-yellow-theme-2: hsl(45, 7%, 89%);
+  --key-shadow-dark-grayish-orange-theme-2: hsl(35, 11%, 61%);
+  --text-very-dark-grayish-yellow-theme-2: hsl(60, 10%, 19%);
+  --text-white-theme-2: hsl(0, 0%, 100%);
+
+  /* Theme 3 */
+  --main-bg-color-theme-3: hsl(268, 75%, 9%);
+  --toggle-keypad-screen-bg-color-theme-3: hsl(268, 71%, 12%);
+  --key-bg-color-theme-3: hsl(281, 89%, 26%);
+  --key-shadow-vivid-magenta-theme-3: hsl(285, 91%, 52%);
+  --key-toggle-bg-color-theme-3: hsl(176, 100%, 44%);
+  --key-toggle-shadow-soft-cyan-theme-3: hsl(177, 92%, 70%);
+  --key-bg-very-dark-violet-theme-3: hsl(268, 47%, 21%);
+  --key-shadow-dark-magenta-theme-3: hsl(290, 70%, 36%);
+  --text-light-yellow-theme-3: hsl(52, 100%, 62%);
+  --text-very-dark-blue-theme-3: hsl(198, 20%, 13%);
+  --text-white-theme-3: hsl(0, 0%, 100%);
+}
+body{
+    background-color: var(--main-bg-color-theme-1);
+}
