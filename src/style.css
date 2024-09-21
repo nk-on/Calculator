@@ -20,7 +20,7 @@
 
   /* Theme 2 */
   --main-bg-color-theme-2: hsl(0, 0%, 90%);
-  --toggle-keypad-bg-color-theme-2: hsla(0, 5%, 81%, 1);
+  --toggle-keypad-bg-color-theme-2:hsla(0, 5%, 81%, 1);
   --screen-bg-color-theme-2:hsla(9, 1%, 93%, 1);
   --key-bg-color-theme-2: hsl(185, 42%, 37%);
   --key-shadow-color-theme-2: hsl(185, 58%, 25%);
@@ -77,6 +77,10 @@ body {
   width: 100%;
   height: 128px;
 }
+.screen-theme-2{
+  background-color: var(--screen-bg-color-theme-2);
+  color:var(--text-very-dark-grayish-blue-theme-1);
+}
 .keyboard-container{
   border-radius: 10px;
   margin-top: 7.5%;
@@ -85,6 +89,9 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
+}
+.keyboard-theme-2{
+  background-color: var(--toggle-keypad-bg-color-theme-2);
 }
 .keyboard{
   width: 80%;
@@ -108,15 +115,21 @@ body {
 .button:hover{
   background-color:   var(--key-bg-light-grayish-orange-theme-1);
 }
-.Reset{
+.reset{
   background-color: var(--key-bg-color-theme-1);
   box-shadow: inset 0px -4px 0px #414E73;
   grid-column: 1/ span 2;
+}
+.reset-theme-2{
+  background-color: var(--key-bg-color-theme-2);
 }
 .Equals{
   box-shadow: inset 0px -4px 0px #93261A;
   background-color: var(--key-toggle-bg-color-theme-1);
   grid-column: 3/ span 2;
+}
+.Equals-theme-2{
+  background-color: var(--key-toggle-bg-color-theme-2);
 }
 @media only screen and (max-width: 600px) {
   .keyboard{
