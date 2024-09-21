@@ -13,7 +13,7 @@
   --key-shadow-color-theme-1: hsl(224, 28%, 35%);
   --key-toggle-bg-color-theme-1: hsl(6, 63%, 50%);
   --key-toggle-shadow-color-theme-1: hsl(6, 70%, 34%);
-  --key-bg-light-grayish-orange-theme-1: hsl(30, 25%, 89%);
+  --key-bg-light-grayish-orange-theme-1: hsla(31, 100%, 100%, 1);
   --key-shadow-grayish-orange-theme-1: hsl(28, 16%, 65%);
   --text-very-dark-grayish-blue-theme-1: hsl(221, 14%, 31%);
   --text-white-theme-1: hsl(0, 0%, 100%);
@@ -54,12 +54,75 @@ body {
   align-items: center;
 }
 .calculator-container {
-  border: 1px solid red;
   width: min(90%, 540px);
-  height: 708px;
+  height: min(90%, 708px);;
+}
+.header{
+  padding: 0 10px;
+  color:var(--text-white-theme-1);
+  display: flex;
+  align-items: center;
+  height: 44px;
 }
 .screen {
+  border-radius: 10px;
+  color: var(--text-white-theme-1);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 32px;
   background-color: var(--screen-bg-color-theme-1);
   width: 100%;
   height: 128px;
+}
+.keyboard-container{
+  border-radius: 10px;
+  margin-top: 7.5%;
+  height: 70%;
+  background-color: var(--screen-bg-color-theme-1);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.keyboard{
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(4,101px);
+  gap:30px;
+}
+.button{
+  cursor: pointer;
+  font-size: 25px;
+  color:var(--screen-bg-color-theme-1);
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:hsla(31, 24%, 89%, 1);
+  height: 64px;
+  border-radius: 5px;
+  box-shadow: 0px -4px 0px 0px hsla(27, 15%, 65%, 1) inset;
+}
+.button:hover{
+  background-color:   var(--key-bg-light-grayish-orange-theme-1);
+}
+#Reset{
+  background-color: var(--key-bg-color-theme-1);
+  box-shadow: inset 0px -4px 0px #414E73;
+  grid-column: 1/ span 2;
+}
+#Equals{
+  box-shadow: inset 0px -4px 0px #93261A;
+  background-color: var(--key-toggle-bg-color-theme-1);
+  grid-column: 3/ span 2;
+}
+@media only screen and (max-width: 600px) {
+  .keyboard{
+    width: 327px;
+    height: 95%;
+    display: grid;
+    grid-template-columns: repeat(4,40px);
+    justify-content: center;
+  }
 }
