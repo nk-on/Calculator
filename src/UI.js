@@ -8,25 +8,26 @@ const buttons = document.querySelectorAll('.button');
 const resetButton = document.querySelector('.reset');
 const equalsButton = document.querySelector('.Equals');
 const title = document.querySelector('.title');
-const DELButton = document.querySelector('.DEL')
+const DELButton = document.querySelector('.DEL');
 firstTheme.addEventListener('change',()=>{
   location.reload();
 })
 secondTheme.addEventListener('change', () => {
   body.style.background = '#E6E6E6';
-  screen.classList.add('screen-theme-2');
-  keyboardContainer.classList.add('keyboard-theme-2');
-  resetButton.classList.add('reset-theme-2');
-  equalsButton.classList.add('Equals-theme-2');
-  DELButton.classList.add('DEL-theme-2')
+  screen.id = 'screen-theme-2'
+  keyboardContainer.id = 'keyboard-theme-2';
+  resetButton.id = 'reset-theme-2';
+  equalsButton.id = 'Equals-theme-2';
+  DELButton.id = 'DEL-theme-2';
+  
 });
 thirdTheme.addEventListener('change',()=>{
   body.style.background = '#17062A';
   title.style.color = '#FFE53D';
-  screen.classList.add('screen-theme-3');
-  keyboardContainer.classList.add('keyboard-theme-3');
+  screen.id = 'screen-theme-3';
+  keyboardContainer.id = 'keyboard-theme-3';
   buttons.forEach(button => button.classList.add('button-theme-3'));
-  resetButton.classList.add('reset-theme-3');
-  equalsButton.classList.add('Equals-theme-3');
-  DELButton.classList.add('DEL-theme-3')
+  resetButton.id = 'reset-theme-3';
+  equalsButton.id = 'Equals-theme-3';
+  DELButton.id  = 'DEL-theme-3';
 })

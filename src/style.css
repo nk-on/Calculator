@@ -78,11 +78,11 @@ body {
   width: 100%;
   height: 128px;
 }
-.screen-theme-2{
+#screen-theme-2{
   background-color: var(--screen-bg-color-theme-2);
   color:var(--text-very-dark-grayish-blue-theme-1);
 }
-.screen-theme-3{
+#screen-theme-3{
   background-color: var(--screen-bg-color-theme-3);
   color:var(--text-light-yellow-theme-3);
 }
@@ -95,10 +95,10 @@ body {
   justify-content: center;
   align-items: center;
 }
-.keyboard-theme-2{
+#keyboard-theme-2{
   background-color: var(--toggle-keypad-bg-color-theme-2);
 }
-.keyboard-theme-3{
+#keyboard-theme-3{
   background-color: var(--screen-bg-color-theme-3);
 }
 .keyboard{
@@ -136,7 +136,7 @@ body {
   color: var(--text-white-theme-1);
   box-shadow: 0px -4px 0px 0px hsla(225, 28%, 35%, 1) inset;
 }
-.DEL-theme-2{
+#DEL-theme-2{
   background: hsla(184, 42%, 37%, 1);
   box-shadow: 0px -4px 0px 0px hsla(225, 28%, 35%, 1) inset;
 }
@@ -145,10 +145,10 @@ body {
   box-shadow: inset 0px -4px 0px #414E73;
   grid-column: 1/ span 2;
 }
-.reset-theme-2{
+#reset-theme-2{
   background-color: var(--key-bg-color-theme-2);
 }
-.reset-theme-3,.DEL-theme-3{
+#reset-theme-3,#DEL-theme-3{
   background-color: var(--key-shadow-dark-magenta-theme-3);
   box-shadow: 0px -4px 0px 0px hsla(285, 91%, 52%, 1) inset;
   color:var(--text-white-theme-3)
@@ -158,10 +158,10 @@ body {
   background-color: var(--key-toggle-bg-color-theme-1);
   grid-column: 3/ span 2;
 }
-.Equals-theme-2{
+#Equals-theme-2{
   background-color: var(--key-toggle-bg-color-theme-2);
 }
-.Equals-theme-3{
+#Equals-theme-3{
   background-color: var( --key-toggle-bg-color-theme-3);
   color:var(--text-white-theme-3);
   box-shadow: 0px -4px 0px 0px hsla(176, 93%, 70%, 1) inset;
