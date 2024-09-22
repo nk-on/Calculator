@@ -131,6 +131,15 @@ body {
 .button-theme-3:hover{
   background-color: #6C34AC;;
 }
+.DEL{
+  background-color:hsla(224, 21%, 49%, 1);
+  color: var(--text-white-theme-1);
+  box-shadow: 0px -4px 0px 0px hsla(225, 28%, 35%, 1) inset;
+}
+.DEL-theme-2{
+  background: hsla(184, 42%, 37%, 1);
+  box-shadow: 0px -4px 0px 0px hsla(225, 28%, 35%, 1) inset;
+}
 .reset{
   background-color: var(--key-bg-color-theme-1);
   box-shadow: inset 0px -4px 0px #414E73;
@@ -139,7 +148,7 @@ body {
 .reset-theme-2{
   background-color: var(--key-bg-color-theme-2);
 }
-.reset-theme-3{
+.reset-theme-3,.DEL-theme-3{
   background-color: var(--key-shadow-dark-magenta-theme-3);
   box-shadow: 0px -4px 0px 0px hsla(285, 91%, 52%, 1) inset;
   color:var(--text-white-theme-3)
