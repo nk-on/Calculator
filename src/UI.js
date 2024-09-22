@@ -7,7 +7,10 @@ const keyboardContainer = document.querySelector('.keyboard-container');
 const buttons = document.querySelectorAll('.button');
 const resetButton = document.querySelector('.reset');
 const equalsButton = document.querySelector('.Equals');
-const title = document.querySelector('.title')
+const title = document.querySelector('.title');
+firstTheme.addEventListener('change',()=>{
+  location.reload();
+})
 secondTheme.addEventListener('change', () => {
   body.style.background = '#E6E6E6';
   screen.classList.add('screen-theme-2');
