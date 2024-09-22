@@ -9,11 +9,18 @@ const resetButton = document.querySelector('.reset');
 const equalsButton = document.querySelector('.Equals');
 const title = document.querySelector('.title');
 const DELButton = document.querySelector('.DEL');
+const elements = document.querySelectorAll('*');
+function removeStyles(){
+  elements.forEach(element => element.id = '');
+  buttons.forEach(button => button.classList.remove('button-theme-3'));
+};
 firstTheme.addEventListener('change',()=>{
   location.reload();
 })
 secondTheme.addEventListener('change', () => {
+  removeStyles();
   body.style.background = '#E6E6E6';
+  title.style.color = '#000';
   screen.id = 'screen-theme-2'
   keyboardContainer.id = 'keyboard-theme-2';
   resetButton.id = 'reset-theme-2';
