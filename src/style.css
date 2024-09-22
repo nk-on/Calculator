@@ -128,6 +128,9 @@ body {
 .button:hover{
   background-color:   var(--key-bg-light-grayish-orange-theme-1);
 }
+.button-theme-3:hover{
+  background-color: #6C34AC;;
+}
 .reset{
   background-color: var(--key-bg-color-theme-1);
   box-shadow: inset 0px -4px 0px #414E73;
