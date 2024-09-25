@@ -17,6 +17,7 @@ const secondOperandContainer = document.querySelector('.operand-2');
 //user should be able to enter two numbers and operator value which should be updated in real time
 function display() {
   let currentOperand = '';
+  let previousOperand = '';
   let operator = '';
   let currentContainer = fistOperandContainer;
   return function (dataSet) {
@@ -24,6 +25,7 @@ function display() {
       operator = dataSet.operator;
       operatorContainer.textContent = operator;
       currentContainer = secondOperandContainer;
+      previousOperand = currentOperand;
       currentOperand = '';
       return;
     }
