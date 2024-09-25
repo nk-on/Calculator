@@ -20,8 +20,8 @@
 
   /* Theme 2 */
   --main-bg-color-theme-2: hsl(0, 0%, 90%);
-  --toggle-keypad-bg-color-theme-2:hsla(0, 5%, 81%, 1);
-  --screen-bg-color-theme-2:hsla(9, 1%, 93%, 1);
+  --toggle-keypad-bg-color-theme-2: hsla(0, 5%, 81%, 1);
+  --screen-bg-color-theme-2: hsla(9, 1%, 93%, 1);
   --key-bg-color-theme-2: hsl(185, 42%, 37%);
   --key-shadow-color-theme-2: hsl(185, 58%, 25%);
   --key-toggle-bg-color-theme-2: hsl(25, 98%, 40%);
@@ -35,12 +35,12 @@
   --main-bg-color-theme-3: hsl(268, 75%, 9%);
   --toggle-keypad-screen-bg-color-theme-3: hsla(268, 71%, 12%, 1);
   --key-bg-color-theme-3: hsl(281, 89%, 26%);
-  --screen-bg-color-theme-3:hsla(268, 71%, 12%, 1);
+  --screen-bg-color-theme-3: hsla(268, 71%, 12%, 1);
   --key-shadow-vivid-magenta-theme-3: hsl(285, 91%, 52%);
-  --key-toggle-bg-color-theme-3: hsl(176, 100%, 44%,1);
+  --key-toggle-bg-color-theme-3: hsl(176, 100%, 44%, 1);
   --key-toggle-shadow-soft-cyan-theme-3: hsl(177, 92%, 70%);
-  --key-bg-very-dark-violet-theme-3: hsl(268, 47%, 21%,1);
-  --key-shadow-dark-magenta-theme-3: hsla(280, 90%, 26%, 1);;
+  --key-bg-very-dark-violet-theme-3: hsl(268, 47%, 21%, 1);
+  --key-shadow-dark-magenta-theme-3: hsla(280, 90%, 26%, 1);
   --text-light-yellow-theme-3: hsl(52, 100%, 62%);
   --text-very-dark-blue-theme-3: hsl(198, 20%, 13%);
   --text-white-theme-3: hsl(0, 0%, 100%);
@@ -56,15 +56,32 @@ body {
 }
 .calculator-container {
   width: min(90%, 540px);
-  height: min(90%, 708px);;
+  height: min(90%, 708px);
 }
-.header{
+.header {
   padding: 0 10px;
-  color:var(--text-white-theme-1);
+  color: var(--text-white-theme-1);
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 44px;
+}
+.numbers{
+  display: flex;
+  justify-content: space-around;
+  width: 71px;
+}
+.switches {
+  /* Rectangle */
+  display: flex;
+  justify-content: space-around;
+  width: 71px;
+  height: 26px;
+  background: #242d44;
+  border-radius: 13px;
+}
+#switches-theme-1{
+  background: hsla(0, 5%, 81%, 1);
 }
 .screen {
   border-radius: 10px;
@@ -78,15 +95,15 @@ body {
   width: 100%;
   height: 128px;
 }
-#screen-theme-2{
+#screen-theme-2 {
   background-color: var(--screen-bg-color-theme-2);
-  color:var(--text-very-dark-grayish-blue-theme-1);
+  color: var(--text-very-dark-grayish-blue-theme-1);
 }
-#screen-theme-3{
+#screen-theme-3 {
   background-color: var(--screen-bg-color-theme-3);
-  color:var(--text-light-yellow-theme-3);
+  color: var(--text-light-yellow-theme-3);
 }
-.keyboard-container{
+.keyboard-container {
   border-radius: 10px;
   margin-top: 7.5%;
   height: 70%;
@@ -95,83 +112,84 @@ body {
   justify-content: center;
   align-items: center;
 }
-#keyboard-theme-2{
+#keyboard-theme-2 {
   background-color: var(--toggle-keypad-bg-color-theme-2);
 }
-#keyboard-theme-3{
+#keyboard-theme-3 {
   background-color: var(--screen-bg-color-theme-3);
 }
-.keyboard{
+.keyboard {
   width: 80%;
   display: grid;
-  grid-template-columns: repeat(4,101px);
-  gap:30px;
+  grid-template-columns: repeat(4, 101px);
+  gap: 30px;
 }
-.button{
+.button {
   cursor: pointer;
   font-size: 25px;
-  color:var(--screen-bg-color-theme-1);
+  color: var(--screen-bg-color-theme-1);
   font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:hsla(31, 24%, 89%, 1);
+  background-color: hsla(31, 24%, 89%, 1);
   height: 64px;
   border-radius: 5px;
   box-shadow: 0px -4px 0px 0px hsla(27, 15%, 65%, 1) inset;
 }
-.button-theme-3{
+.button-theme-3 {
   background-color: var(--key-bg-very-dark-violet-theme-3);
   box-shadow: 0px -4px 0px 0px hsla(290, 70%, 36%, 1) inset;
   color: var(--text-light-yellow-theme-3);
 }
-.button:hover{
-  background-color:   var(--key-bg-light-grayish-orange-theme-1);
+.button:hover {
+  background-color: var(--key-bg-light-grayish-orange-theme-1);
 }
-.button-theme-3:hover{
-  background-color: #6C34AC;;
+.button-theme-3:hover {
+  background-color: #6c34ac;
 }
-.DEL{
-  background-color:hsla(224, 21%, 49%, 1);
+.DEL {
+  background-color: hsla(224, 21%, 49%, 1);
   color: var(--text-white-theme-1);
   box-shadow: 0px -4px 0px 0px hsla(225, 28%, 35%, 1) inset;
 }
-#DEL-theme-2{
+#DEL-theme-2 {
   background: hsla(184, 42%, 37%, 1);
   box-shadow: 0px -4px 0px 0px hsla(225, 28%, 35%, 1) inset;
 }
-.reset{
+.reset {
   background-color: var(--key-bg-color-theme-1);
-  box-shadow: inset 0px -4px 0px #414E73;
-  grid-column: 1/ span 2;
+  box-shadow: inset 0px -4px 0px #414e73;
+  grid-column: 1 / span 2;
 }
-#reset-theme-2{
+#reset-theme-2 {
   background-color: var(--key-bg-color-theme-2);
 }
-#reset-theme-3,#DEL-theme-3{
+#reset-theme-3,
+#DEL-theme-3 {
   background-color: var(--key-shadow-dark-magenta-theme-3);
   box-shadow: 0px -4px 0px 0px hsla(285, 91%, 52%, 1) inset;
-  color:var(--text-white-theme-3)
+  color: var(--text-white-theme-3);
 }
-.Equals{
-  box-shadow: inset 0px -4px 0px #93261A;
+.Equals {
+  box-shadow: inset 0px -4px 0px #93261a;
   background-color: var(--key-toggle-bg-color-theme-1);
-  grid-column: 3/ span 2;
+  grid-column: 3 / span 2;
 }
-#Equals-theme-2{
+#Equals-theme-2 {
   background-color: var(--key-toggle-bg-color-theme-2);
 }
-#Equals-theme-3{
-  background-color: var( --key-toggle-bg-color-theme-3);
-  color:var(--text-white-theme-3);
+#Equals-theme-3 {
+  background-color: var(--key-toggle-bg-color-theme-3);
+  color: var(--text-white-theme-3);
   box-shadow: 0px -4px 0px 0px hsla(176, 93%, 70%, 1) inset;
 }
 @media only screen and (max-width: 600px) {
-  .keyboard{
+  .keyboard {
     width: 327px;
     height: 95%;
     display: grid;
-    grid-template-columns: repeat(4,40px);
+    grid-template-columns: repeat(4, 40px);
     justify-content: center;
   }
 }
