@@ -21,13 +21,15 @@ function display() {
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
   let expression = '';
   return function(){
-    if(operators.has(expression[expression.length-1]) && this.dataset.operator){
+    const value = this.textContent;
+    const data = this.dataset
+    if(operators.has(expression[expression.length-1]) && data.operator){
       return;
     }
-    if(this.dataset.operator && !expression.length){
+    if(data.operator && !expression.length){
       return;
     }
-    expression+=this.textContent;
+    expression+=value;
     resultsContainer.textContent = expression;
   }
 }
