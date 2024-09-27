@@ -16,13 +16,17 @@ let number = '';
    - **Clear:** Clears the entire display.
    - **Delete:** Deletes the last digit entered. */
 //user should be able to enter two numbers and operator value which should be updated in real time
-function updateDisplay() {
+function display() {
   const dataset = this.dataset;
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
   let expression = '';
-  expression+=this.textContent;
-  resultsContainer.textContent+=expression;
+  return function(){
+   
+    expression+=this.textContent;
+    resultsContainer.textContent = expression;
+  }
 }
+const updateDisplay = display();
 buttons.forEach((button) => {
   button.addEventListener('click', updateDisplay);
 });
