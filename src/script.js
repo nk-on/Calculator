@@ -19,16 +19,9 @@ let number = '';
 function updateDisplay() {
   const dataset = this.dataset;
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
-  if (dataset.operator && number.length === 0) {
-    return;
-  }
-  if (dataset.operator && number.length > 0) {
-    symbolsArray.push(number);
-    number = '';
-    symbolsArray.push(dataset.operator);
-    return;
-  }
-  number += dataset.num;
+  let expression = '';
+  expression+=this.textContent;
+  resultsContainer.textContent+=expression;
 }
 buttons.forEach((button) => {
   button.addEventListener('click', updateDisplay);
