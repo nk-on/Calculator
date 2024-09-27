@@ -2,9 +2,10 @@ const buttons = document.querySelectorAll('.button');
 const delButton = document.querySelector('#DEL');
 const resetButton = document.querySelector('.reset');
 const equalsButton = document.querySelector('.Equals');
-const fistOperandContainer = document.querySelector('.operand-1');
-const operatorContainer = document.querySelector('.operator');
-const secondOperandContainer = document.querySelector('.operand-2');
+const resultsContainer = document.querySelector('.results');
+const operators = new Set(['+', '-', '*', '/']);
+let symbolsArray = [];
+let number = '';
 /*## Features
 1. **Entering Two Numbers:** Users can input two numbers into the calculator.
 2. **Arithmetic Operations:** Basic arithmetic operations such as addition (+), subtraction (-), multiplication (*), and division (/) are supported.
@@ -15,30 +16,20 @@ const secondOperandContainer = document.querySelector('.operand-2');
    - **Clear:** Clears the entire display.
    - **Delete:** Deletes the last digit entered. */
 //user should be able to enter two numbers and operator value which should be updated in real time
-function display() {
-  let currentOperand = '';
-  let previousOperand = '';
-  let operator = '';
-  let currentContainer = fistOperandContainer;
-  return function (dataSet) {
-    if (dataSet.operator && operator.length === 0) {
-      operator = dataSet.operator;
-      operatorContainer.textContent = operator;
-      currentContainer = secondOperandContainer;
-      previousOperand = currentOperand;
-      currentOperand = '';
-      return;
-    }
-    if (dataSet.operator && operator.length !== 0) {
-      return;
-    }
-    currentOperand += dataSet.num;
-    currentContainer.textContent = currentOperand;
-  };
+function updateDisplay() {
+  const dataset = this.dataset;
+  //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
+  if (dataset.operator && number.length === 0) {
+    return;
+  }
+  if (dataset.operator && number.length > 0) {
+    symbolsArray.push(number);
+    number = '';
+    symbolsArray.push(dataset.operator);
+    return;
+  }
+  number += dataset.num;
 }
-const updateDisplay = display();
 buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    updateDisplay(button.dataset);
-  });
+  button.addEventListener('click', updateDisplay);
 });
