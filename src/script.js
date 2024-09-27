@@ -21,7 +21,9 @@ function display() {
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
   let expression = '';
   return function(){
-   
+    if(this.dataset.operator && !expression.length){
+      return;
+    }
     expression+=this.textContent;
     resultsContainer.textContent = expression;
   }
