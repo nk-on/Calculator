@@ -16,8 +16,11 @@ let number = '';
    - **Clear:** Clears the entire display.
    - **Delete:** Deletes the last digit entered. */
 //user should be able to enter two numbers and operator value which should be updated in real time
+function calculate(){
+  const result = math.evaluate(resultsContainer.textContent);
+  resultsContainer.textContent = result;
+}
 function display() {
-  const dataset = this.dataset;
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
   let number = ''
   return function(){
@@ -34,7 +37,7 @@ function display() {
       number = number.replace(/\b0(\d+)/g, '0.$1');
     }
     if(data.operator){
-      console.log(data.operator)
+      if(data.operator === '=') calculate();
       resultsContainer.textContent = resultsContainer.textContent + data.operator;
       number = '';
       return;
