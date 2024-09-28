@@ -16,34 +16,38 @@ let number = '';
    - **Clear:** Clears the entire display.
    - **Delete:** Deletes the last digit entered. */
 //user should be able to enter two numbers and operator value which should be updated in real time
-function calculate(){
+function calculate() {
   const result = math.evaluate(resultsContainer.textContent);
   resultsContainer.textContent = result;
 }
 function display() {
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
-  let number = ''
-  return function(){
+  let number = '';
+  return function () {
     const data = this.dataset;
-    if(data.operator && !number.length){
+    if (data.operator && !number.length) {
       return;
     }
-    if(data.num === '.' && number.includes('.')){
+    if (data.num === '.' && number.includes('.')) {
       return;
     }
-    number+=data.num;
-    if(number[0] === '0' && number.length === 2){
-      console.log(1)
+    number += data.num;
+    if (number[0] === '0' && number.length === 2) {
+      console.log(1);
       number = number.replace(/\b0(\d+)/g, '0.$1');
     }
-    if(data.operator){
-      if(data.operator === '=') calculate();
-      resultsContainer.textContent = resultsContainer.textContent + data.operator;
+    if (data.operator) {
+      if (data.operator === '=') {
+        calculate();
+        return;
+      }
+      resultsContainer.textContent =
+        resultsContainer.textContent + data.operator;
       number = '';
       return;
     }
     resultsContainer.textContent = resultsContainer.textContent + data.num;
-  }
+  };
 }
 const updateDisplay = display();
 buttons.forEach((button) => {
