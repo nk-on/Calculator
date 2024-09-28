@@ -19,18 +19,24 @@ let number = '';
 function display() {
   const dataset = this.dataset;
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
-  let expression = '';
+  let number = ''
   return function(){
-    const value = this.textContent;
-    const data = this.dataset
-    if(operators.has(expression[expression.length-1]) && data.operator){
+    const data = this.dataset;
+    if(data.operator && !number.length){
       return;
     }
-    if(data.operator && !expression.length){
+    number+=data.num;
+    if(number[0] === '0' && number.length === 2){
+      console.log(1)
+      number = number.replace(/\b0(\d+)/g, '0.$1');
+    }
+    if(data.operator){
+      console.log(data.operator)
+      resultsContainer.textContent = resultsContainer.textContent + data.operator;
+      number = '';
       return;
     }
-    expression+=value;
-    resultsContainer.textContent = expression;
+    resultsContainer.textContent = resultsContainer.textContent + data.num;
   }
 }
 const updateDisplay = display();
