@@ -25,6 +25,9 @@ function display() {
     if(data.operator && !number.length){
       return;
     }
+    if(data.num === '.' && number.includes('.')){
+      return;
+    }
     number+=data.num;
     if(number[0] === '0' && number.length === 2){
       console.log(1)
