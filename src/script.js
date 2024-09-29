@@ -18,8 +18,12 @@ let number = '';
    - **Delete:** Deletes the last digit entered. */
 //user should be able to enter two numbers and operator value which should be updated in real time
 function calculate() {
-  const result = math.evaluate(resultsContainer.textContent);
-  resultsContainer.textContent = result;
+  try {
+    const result = math.evaluate(resultsContainer.textContent);
+    resultsContainer.textContent = result;
+  } catch {
+     resultsContainer.innerHTML = '<span class = error-messege>Format error</span>'
+  }
 }
 function reset() {
   resultsContainer.textContent = '';
@@ -33,22 +37,14 @@ function Delete() {
 function display() {
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
   let number = '';
-  let parentheses = [];
   return function () {
+    // resultsContainer.removeChild(resultsContainer.lastChild)
     const data = this.dataset;
     //create parenteces array if it is not valid don't let user to type paranteces
     //() is valid () -> ( let user to type )
     if (data.parenthesis) {
-      if(parentheses.length >= 2){
-        return;
-      }
-      parentheses.push(data.parenthesis);
-      if(parentheses[0] === parentheses[1]){
-        return;
-      }
-      console.log(data.parenthesis)
       resultsContainer.textContent += data.parenthesis;
-      return
+      return;
     }
     if (data.operator && !number.length) {
       return;
