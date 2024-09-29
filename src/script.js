@@ -1,9 +1,10 @@
-const buttons = document.querySelectorAll('.button');
+const buttons = document.querySelectorAll('button');
 const delButton = document.querySelector('#DEL');
 const resetButton = document.querySelector('.reset');
 const equalsButton = document.querySelector('.Equals');
 const resultsContainer = document.querySelector('.results');
 const operators = new Set(['+', '-', '*', '/']);
+const deleteButton = document.querySelector('#DEL')
 let symbolsArray = [];
 let number = '';
 /*## Features
@@ -19,6 +20,9 @@ let number = '';
 function calculate() {
   const result = math.evaluate(resultsContainer.textContent);
   resultsContainer.textContent = result;
+}
+function Delete(){
+  resultsContainer.textContent = resultsContainer.textContent.substring(0, resultsContainer.textContent.length - 1);
 }
 function display() {
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
@@ -39,7 +43,7 @@ function display() {
     if (data.operator) {
       if (data.operator === '=') {
         calculate();
-        return;
+        return
       }
       resultsContainer.textContent =
         resultsContainer.textContent + data.operator;
@@ -50,6 +54,7 @@ function display() {
   };
 }
 const updateDisplay = display();
+delButton.addEventListener('click',Delete);
 buttons.forEach((button) => {
   button.addEventListener('click', updateDisplay);
 });
