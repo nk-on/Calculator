@@ -38,33 +38,39 @@ function Delete() {
 function display() {
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
   let number = '';
+  let decimals = [];
   return function () {
     // resultsContainer.removeChild(resultsContainer.lastChild)
     const data = this.dataset;
-    //create parenteces array if it is not valid don't let user to type paranteces
-    //() is valid () -> ( let user to type )
-    if (data.parenthesis) {
-      resultsContainer.textContent += data.parenthesis;
-      return;
-    }
     if (data.operator && !number.length) {
       return;
     }
-    if (data.num === '.' && number.includes('.')) {
+    if(data.decimal){
+      decimals.push(data.decimal)
+      console.log(decimals)
+      if(decimals.length >= 2){
+        return;
+      }
+      resultsContainer.textContent = resultsContainer.textContent + data.decimal;
       return;
     }
     number += data.num;
     if (number[0] === '0' && number.length === 2) {
+      decimals.push(data.decimal);
+      if(decimals >= 2){
+        return;
+      }
       data.num = `.${data.num}`;
     }
     if (data.operator) {
+      decimals = [];
+      number = '';
       if (data.operator === '=') {
         calculate();
         return;
       }
       resultsContainer.textContent =
         resultsContainer.textContent + data.operator;
-      number = '';
       return;
     }
     resultsContainer.textContent = resultsContainer.textContent + data.num;
