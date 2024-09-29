@@ -4,7 +4,7 @@ const resetButton = document.querySelector('.reset');
 const equalsButton = document.querySelector('.Equals');
 const resultsContainer = document.querySelector('.results');
 const operators = new Set(['+', '-', '*', '/']);
-const deleteButton = document.querySelector('#DEL')
+const deleteButton = document.querySelector('#DEL');
 let symbolsArray = [];
 let number = '';
 /*## Features
@@ -20,6 +20,9 @@ let number = '';
 function calculate() {
   const result = math.evaluate(resultsContainer.textContent);
   resultsContainer.textContent = result;
+}
+function reset(){
+  resultsContainer.textContent = '';
 }
 function Delete(){
   resultsContainer.textContent = resultsContainer.textContent.substring(0, resultsContainer.textContent.length - 1);
@@ -55,6 +58,7 @@ function display() {
 }
 const updateDisplay = display();
 delButton.addEventListener('click',Delete);
+resetButton.addEventListener('click',reset);
 buttons.forEach((button) => {
   button.addEventListener('click', updateDisplay);
 });
