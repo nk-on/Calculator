@@ -22,7 +22,8 @@ function calculate() {
     const result = math.evaluate(resultsContainer.textContent);
     resultsContainer.textContent = result;
   } catch {
-     resultsContainer.innerHTML = '<span class = error-messege>Format error</span>'
+    resultsContainer.innerHTML =
+      '<span class = error-messege>Format error</span>';
   }
 }
 function reset() {
@@ -54,8 +55,7 @@ function display() {
     }
     number += data.num;
     if (number[0] === '0' && number.length === 2) {
-      console.log(1);
-      number = number.replace(/\b0(\d+)/g, '0.$1');
+      data.num = `.${data.num}`;
     }
     if (data.operator) {
       if (data.operator === '=') {
@@ -65,7 +65,6 @@ function display() {
       resultsContainer.textContent =
         resultsContainer.textContent + data.operator;
       number = '';
-      parentheses = [];
       return;
     }
     resultsContainer.textContent = resultsContainer.textContent + data.num;
