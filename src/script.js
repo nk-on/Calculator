@@ -40,18 +40,22 @@ function display() {
   let number = '';
   let decimals = [];
   return function () {
-    // resultsContainer.removeChild(resultsContainer.lastChild)
     const data = this.dataset;
     if (data.operator && !number.length) {
       return;
+    };
+    console.log(number)
+    if (data.decimal && number.length === 0){
+      decimals.push(data.decimal);
+      resultsContainer.textContent = resultsContainer.textContent + '0.';
+      return;
     }
     if(data.decimal){
-      decimals.push(data.decimal)
-      console.log(decimals)
+      decimals.push(data.decimal);
       if(decimals.length >= 2){
         return;
       }
-      resultsContainer.textContent = resultsContainer.textContent + data.decimal;
+      resultsContainer.textContent += data.decimal;
       return;
     }
     number += data.num;
