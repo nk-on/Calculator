@@ -21,17 +21,35 @@ function calculate() {
   const result = math.evaluate(resultsContainer.textContent);
   resultsContainer.textContent = result;
 }
-function reset(){
+function reset() {
   resultsContainer.textContent = '';
 }
-function Delete(){
-  resultsContainer.textContent = resultsContainer.textContent.substring(0, resultsContainer.textContent.length - 1);
+function Delete() {
+  resultsContainer.textContent = resultsContainer.textContent.substring(
+    0,
+    resultsContainer.textContent.length - 1
+  );
 }
 function display() {
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
   let number = '';
+  let parentheses = [];
   return function () {
     const data = this.dataset;
+    //create parenteces array if it is not valid don't let user to type paranteces
+    //() is valid () -> ( let user to type )
+    if (data.parenthesis) {
+      if(parentheses.length >= 2){
+        return;
+      }
+      parentheses.push(data.parenthesis);
+      if(parentheses[0] === parentheses[1]){
+        return;
+      }
+      console.log(data.parenthesis)
+      resultsContainer.textContent += data.parenthesis;
+      return
+    }
     if (data.operator && !number.length) {
       return;
     }
@@ -46,19 +64,20 @@ function display() {
     if (data.operator) {
       if (data.operator === '=') {
         calculate();
-        return
+        return;
       }
       resultsContainer.textContent =
         resultsContainer.textContent + data.operator;
       number = '';
+      parentheses = [];
       return;
     }
     resultsContainer.textContent = resultsContainer.textContent + data.num;
   };
 }
 const updateDisplay = display();
-delButton.addEventListener('click',Delete);
-resetButton.addEventListener('click',reset);
+delButton.addEventListener('click', Delete);
+resetButton.addEventListener('click', reset);
 buttons.forEach((button) => {
   button.addEventListener('click', updateDisplay);
 });

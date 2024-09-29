@@ -78,16 +78,17 @@ body {
   height: 128px;
 }
 .keyboard-container{
+  padding: 20px 0;
   border-radius: 10px;
   margin-top: 7.5%;
-  height: 70%;
+  min-height: 70%;
   background-color: var(--screen-bg-color-theme-1);
   display: grid;
   justify-content: center;
   align-items: center;
 }
 .keyboard{
-  width: 80%;
+  min-width: 80%;
   display: grid;
   grid-template-columns: repeat(4,101px);
   gap:30px;
@@ -105,10 +106,13 @@ body {
   border-radius: 5px;
   box-shadow: 0px -4px 0px 0px hsla(27, 15%, 65%, 1) inset;
 }
+button{
+  border: none;
+}
 .button:hover{
   background-color:   var(--key-bg-light-grayish-orange-theme-1);
 }
-.Reset{
+.reset{
   background-color: var(--key-bg-color-theme-1);
   box-shadow: inset 0px -4px 0px #414E73;
   grid-column: 1/ span 2;
