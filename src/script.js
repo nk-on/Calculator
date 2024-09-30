@@ -41,17 +41,14 @@ function display() {
   let decimals = [];
   return function () {
     const data = this.dataset;
-    if (data.operator && !number.length) {
-      return;
-    };
-    console.log(number)
-    if (data.decimal && number.length === 0){
-      decimals.push(data.decimal);
-      resultsContainer.textContent = resultsContainer.textContent + '0.';
-      return;
-    }
+    //Preventing User from Multiple operators
+    if (data.operator && !number.length) return;
     if(data.decimal){
       decimals.push(data.decimal);
+      if (data.decimal && number.length === 0){
+        resultsContainer.textContent = resultsContainer.textContent + '0.';
+        return;
+      }
       if(decimals.length >= 2){
         return;
       }
