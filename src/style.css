@@ -71,6 +71,13 @@ body {
   justify-content: space-around;
   width: 71px;
 }
+#numbers-theme-2{
+  color: hsla(60, 10%, 19%, 1);
+}
+#numbers-theme-3{
+  color: hsla(52, 100%, 62%, 1);
+  ;
+}
 .switches {
   /* Rectangle */
   display: flex;
@@ -80,8 +87,11 @@ body {
   background: #242d44;
   border-radius: 13px;
 }
-#switches-theme-1{
+#switches-theme-2{
   background: hsla(0, 5%, 81%, 1);
+}
+#switches-theme-3{
+  background-color: hsla(268, 71%, 12%, 1);
 }
 .screen {
   border-radius: 10px;
