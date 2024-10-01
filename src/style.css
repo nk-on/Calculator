@@ -175,7 +175,9 @@ body {
 #reset-theme-2 {
   background-color: var(--key-bg-color-theme-2);
 }
-#reset-theme-3,
+#reset-theme-3{
+  background: hsla(280, 90%, 26%, 1);
+}
 #DEL-theme-3 {
   background-color: var(--key-shadow-dark-magenta-theme-3);
   box-shadow: 0px -4px 0px 0px hsla(285, 91%, 52%, 1) inset;
