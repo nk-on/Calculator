@@ -5,6 +5,7 @@ const equalsButton = document.querySelector('.Equals');
 const resultsContainer = document.querySelector('.results');
 const deleteButton = document.querySelector('#DEL');
 let resultString = '';
+let decimals = [];
 /*## Features
 1. **Entering Two Numbers:** Users can input two numbers into the calculator.
 2. **Arithmetic Operations:** Basic arithmetic operations such as addition (+), subtraction (-), multiplication (*), and division (/) are supported.
@@ -34,10 +35,15 @@ function Delete() {
     resultsContainer.textContent.length - 1
   );
 }
+function twoDecimals(){
+  console.log(decimals)
+  if(decimals.length >= 2){
+    return true;
+  }
+}
 function display() {
   //app should append number to datasetnum if user clicks on operator it should clear add operatpr and begin process again
   let number = '';
-  let decimals = [];
   return function () {
     const data = this.dataset;
     //Preventing User from Multiple operators
@@ -52,9 +58,7 @@ function display() {
         return;
       }
       //Preventing user from entering two decimals
-      if(decimals.length >= 2){
-        return;
-      }
+      if(twoDecimals()) return;
       resultsContainer.textContent += data.decimal;
       return;
     }
@@ -63,14 +67,11 @@ function display() {
     //if user entered zero and any other number converting it to floating point
     if (number[0] === '0' && number.length === 2) {
       decimals.push(data.decimal);
-      if(decimals >= 2){
-        return;
-      }
+      if(twoDecimals()) return;
       data.num = `.${data.num}`;
     }
     if (data.operator) {
       //if user clcks operator reseting tracked number and tracked decimals
-      decimals = [];
       number = '';
       if (data.operator === '=') {
         resultString = resultsContainer.textContent;
