@@ -5,7 +5,7 @@ const equalsButton = document.querySelector('.Equals');
 const resultsContainer = document.querySelector('.results');
 const operators = new Set(['+', '-', '*', '/']);
 const deleteButton = document.querySelector('#DEL');
-let symbolsArray = [];
+let resultString = '';
 let number = '';
 /*## Features
 1. **Entering Two Numbers:** Users can input two numbers into the calculator.
@@ -19,8 +19,9 @@ let number = '';
 //user should be able to enter two numbers and operator value which should be updated in real time
 function calculate() {
   try {
-    const result = math.evaluate(resultsContainer.textContent);
+    const result = math.evaluate(resultString);
     resultsContainer.textContent = result;
+    resultString = '';
   } catch {
     resultsContainer.innerHTML =
       '<span class = error-messege>Format error</span>';
@@ -43,6 +44,7 @@ function display() {
     const data = this.dataset;
     //Preventing User from Multiple operators
     if (data.operator && !number.length) return;
+    //Handeling
     if(data.decimal){
       decimals.push(data.decimal);
       if (data.decimal && number.length === 0){
@@ -67,6 +69,7 @@ function display() {
       decimals = [];
       number = '';
       if (data.operator === '=') {
+        resultString = resultsContainer.textContent;
         calculate();
         return;
       }
