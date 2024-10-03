@@ -27,7 +27,6 @@ function Delete() {
   );
 }
 function twoDecimals(){
-  console.log(decimals)
   if(decimals.length >= 2){
     return true;
   }
