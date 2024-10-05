@@ -20,14 +20,17 @@ function removeStyles(){
 function themeSwitch(){
   let count = 0;
   return ()=>{
-    if(count === 0){
-      body.classList.add('theme2');
-      count++;
-    }else if(count === 1){
-      body.classList.add('theme3');
-      count++;
-    }else{
-      location.reload();
+    switch(count){
+      case 0:
+        body.classList.add('theme2');
+        count++;
+        break;
+      case 1:
+        body.classList.add('theme3');
+        count++;
+        break;
+      default:
+        location.reload();
     }
   }
 };
