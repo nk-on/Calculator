@@ -13,19 +13,23 @@ const switchContainer = document.querySelector('.switches');
 const switchNumbers = document.querySelectorAll('.number');
 const switchButton = document.querySelector('.switch');
 const body = document.querySelector('body');
-let count = 0;
 function removeStyles(){
   elements.forEach(element => element.id = '');
   buttons.forEach(button => button.classList.remove('button-theme-3'));
 };
-switchButton.addEventListener('click',()=>{
-  if(count === 0){
-    body.classList.add('theme2');
-    count++;
-  }else if(count === 1){
-    body.classList.add('theme3');
-    count++;
-  }else{
-    location.reload();
+function themeSwitch(){
+  let count = 0;
+  return ()=>{
+    if(count === 0){
+      body.classList.add('theme2');
+      count++;
+    }else if(count === 1){
+      body.classList.add('theme3');
+      count++;
+    }else{
+      location.reload();
+    }
   }
-})
+};
+const themeChange = themeSwitch();
+switchButton.addEventListener('click',themeChange)
