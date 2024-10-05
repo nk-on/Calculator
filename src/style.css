@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -46,8 +46,8 @@
   --text-white-theme-3: hsl(0, 0%, 100%);
 }
 body {
-  font-family: 'League Spartan', sans-serif;
-  font-family: 'League Spartan', sans-serif;
+  font-family: "League Spartan", sans-serif;
+  font-family: "League Spartan", sans-serif;
   height: 100vh;
   background-color: var(--main-bg-color-theme-1);
   display: flex;
@@ -66,32 +66,35 @@ body {
   align-items: center;
   height: 44px;
 }
-.numbers{
+.numbers {
   display: flex;
   justify-content: space-around;
   width: 71px;
 }
-#numbers-theme-2{
+#numbers-theme-2 {
   color: hsla(60, 10%, 19%, 1);
 }
-#numbers-theme-3{
+#numbers-theme-3 {
   color: hsla(52, 100%, 62%, 1);
-  ;
 }
 .switches {
   /* Rectangle */
+  padding-left: 5px;
+  position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
   width: 71px;
   height: 26px;
   background: #242d44;
   border-radius: 13px;
 }
-#switches-theme-2{
-  background: hsla(0, 5%, 81%, 1);
-}
-#switches-theme-3{
-  background-color: hsla(268, 71%, 12%, 1);
+.switch {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: #d03f2f;
 }
 .screen {
   border-radius: 10px;
@@ -105,15 +108,8 @@ body {
   width: 100%;
   height: 128px;
 }
-#screen-theme-2 {
-  background-color: var(--screen-bg-color-theme-2);
-  color: var(--text-very-dark-grayish-blue-theme-1);
-}
-#screen-theme-3 {
-  background-color: var(--screen-bg-color-theme-3);
-  color: var(--text-light-yellow-theme-3);
-}
-.keyboard-container{
+
+.keyboard-container {
   padding: 20px 0;
   border-radius: 10px;
   margin-top: 7.5%;
@@ -123,18 +119,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-#keyboard-theme-2 {
-  background-color: var(--toggle-keypad-bg-color-theme-2);
-}
-#keyboard-theme-3 {
-  background-color: var(--screen-bg-color-theme-3);
-}
-.keyboard{
+.keyboard {
   min-width: 80%;
   display: grid;
   grid-template-columns: repeat(4, 101px);
   gap: 30px;
 }
+
 .button {
   cursor: pointer;
   font-size: 25px;
@@ -164,44 +155,105 @@ body {
   color: var(--text-white-theme-1);
   box-shadow: 0px -4px 0px 0px hsla(225, 28%, 35%, 1) inset;
 }
-#DEL-theme-2 {
-  background: hsla(184, 42%, 37%, 1);
-  box-shadow: 0px -4px 0px 0px hsla(225, 28%, 35%, 1) inset;
-}
-button{
+button {
   border: none;
 }
-.button:hover{
-  background-color:   var(--key-bg-light-grayish-orange-theme-1);
+.button:hover {
+  background-color: var(--key-bg-light-grayish-orange-theme-1);
 }
-.reset{
+.reset {
   background-color: var(--key-bg-color-theme-1);
   box-shadow: inset 0px -4px 0px #414e73;
   grid-column: 1 / span 2;
-}
-#reset-theme-2 {
-  background-color: var(--key-bg-color-theme-2);
-}
-#reset-theme-3{
-  background: hsla(280, 90%, 26%, 1);
-}
-#DEL-theme-3 {
-  background-color: var(--key-shadow-dark-magenta-theme-3);
-  box-shadow: 0px -4px 0px 0px hsla(285, 91%, 52%, 1) inset;
-  color: var(--text-white-theme-3);
 }
 .Equals {
   box-shadow: inset 0px -4px 0px #93261a;
   background-color: var(--key-toggle-bg-color-theme-1);
   grid-column: 3 / span 2;
 }
-#Equals-theme-2 {
-  background-color: var(--key-toggle-bg-color-theme-2);
+body.theme2 {
+  background-color: hsl(0, 0%, 90%);
 }
-#Equals-theme-3 {
-  background-color: var(--key-toggle-bg-color-theme-3);
-  color: var(--text-white-theme-3);
-  box-shadow: 0px -4px 0px 0px hsla(176, 93%, 70%, 1) inset;
+body.theme2 .header {
+  color: hsl(60, 10%, 19%);
+}
+body.theme2 .switches {
+  background-color: hsl(0, 5%, 81%);
+}
+body.theme2 .switch {
+  transform: translateX(17px);
+  transition: 0.4s ease;
+  background-color: hsl(25, 98%, 40%);
+}
+body.theme2 .screen {
+  background-color: hsl(0, 0%, 93%);
+  color: hsl(60, 10%, 19%);
+}
+body.theme2 .keyboard-container {
+  background-color: hsl(0, 5%, 81%);
+}
+body.theme2 .button {
+  color: hsl(60, 10%, 19%);
+  background-color: hsl(30, 25%, 89%);
+  box-shadow: inset 0 -2px 2px 2px hsl(28, 16%, 65%);
+}
+body.theme2 .reset,
+body.theme2 .Equals {
+  color: white;
+}
+body.theme2 .reset,
+body.theme2 #DEL {
+  background-color: hsl(185, 42%, 37%);
+  box-shadow: inset 0 -2px 2px 2px hsl(185, 58%, 25%);
+  color: white;
+}
+body.theme2 .equals {
+  background-color: hsl(25, 98%, 40%);
+  box-shadow: inset 0 -2px 2px 2px hsl(25, 99%, 27%);
+}
+body.theme3 {
+  background-color: hsl(268, 75%, 9%);
+}
+body.theme3 .header {
+  color: hsl(52, 100%, 62%);
+}
+body.theme3 .switches {
+  background-color: hsl(268, 71%, 12%);
+}
+body.theme3 .switch {
+  transform: translateX(36px);
+  transition: 0.4s ease;
+  background-color: hsl(176, 100%, 44%);
+}
+body.theme3 .screen {
+  background-color: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
+}
+body.theme3 .keyboard-container {
+  background-color: hsl(268, 71%, 12%);
+}
+body.theme3 .button {
+  color: hsl(52, 100%, 62%);
+  background-color: hsl(268, 47%, 21%);
+  box-shadow: inset 0 -2px 2px 2px hsl(290, 70%, 36%);
+}
+body.theme3 .reset,
+body.theme3 .Equals {
+  color: white;
+}
+body.theme3 .reset,
+body.theme3 #DEL {
+  background-color: hsl(281, 89%, 26%);
+  box-shadow: inset 0 -2px 2px 2px hsl(285, 91%, 52%);
+  color: white;
+}
+body.theme3 .equals {
+  background-color: hsl(176, 100%, 44%);
+  box-shadow: inset 0 -2px 2px 2px hsl(177, 92%, 70%);
+  color: hsl(198, 20%, 13%);
+}
+body.theme3 .button:hover {
+  filter: brightness(170%);
 }
 @media only screen and (max-width: 600px) {
   .keyboard {
